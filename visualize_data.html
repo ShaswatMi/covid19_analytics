@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            height: 400px;
+            margin-bottom: 30px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: white;
+            border-bottom: 2px solid #4285f4;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>COVID-19 Analytics Dashboard</h1>
+        <p>This dashboard shows mock data for the COVID-19 analytics project.</p>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'global')">Global Trends</button>
+            <button class="tab" onclick="openTab(event, 'countries')">Country Analysis</button>
+            <button class="tab" onclick="openTab(event, 'daily')">Daily Statistics</button>
+        </div>
+        
+        <div id="global" class="tab-content active">
+            <div class="card">
+                <h2>Global COVID-19 Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Cases</div>
+                        <div id="global-cases" class="stat-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Deaths</div>
+                        <div id="global-deaths" class="stat-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Recovered</div>
+                        <div id="global-recovered" class="stat-value">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Case Fatality Rate</div>
+                        <div id="global-cfr" class="stat-value">-</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Global Trends</h2>
+                <div class="chart-container">
+                    <canvas id="globalTrendsChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="countries" class="tab-content">
+            <div class="card">
+                <h2>Country Comparison</h2>
+                <div class="chart-container">
+                    <canvas id="countryComparisonChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Case Fatality Rate by Country</h2>
+                <div class="chart-container">
+                    <canvas id="countryFatalityChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="daily" class="tab-content">
+            <div class="card">
+                <h2>Daily New Cases and Deaths</h2>
+                <div class="chart-container">
+                    <canvas id="dailyStatsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to format large numbers
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            }
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num;
+        }
+        
+        // Tab functionality
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+        
+        // Load and display the data
+        async function loadData() {
+            try {
+                // Load global trends data
+                const globalTrendsResponse = await fetch('mock_data/global_trends.json');
+                const globalTrends = await globalTrendsResponse.json();
+                
+                // Load country analysis data
+                const countryAnalysisResponse = await fetch('mock_data/country_analysis.json');
+                const countryAnalysis = await countryAnalysisResponse.json();
+                
+                // Load daily stats data
+                const dailyStatsResponse = await fetch('mock_data/daily_stats.json');
+                const dailyStats = await dailyStatsResponse.json();
+                
+                // Display global statistics
+                if (globalTrends.length > 0) {
+                    const latestGlobal = globalTrends[0];
+                    document.getElementById('global-cases').textContent = formatNumber(latestGlobal.global_total_cases);
+                    document.getElementById('global-deaths').textContent = formatNumber(latestGlobal.global_total_deaths);
+                    document.getElementById('global-recovered').textContent = formatNumber(latestGlobal.global_total_recovered);
+                    document.getElementById('global-cfr').textContent = latestGlobal.case_fatality_rate + '%';
+                }
+                
+                // Create global trends chart
+                const globalChartData = {
+                    labels: globalTrends.slice(0, 14).map(item => item.date).reverse(),
+                    datasets: [
+                        {
+                            label: 'New Cases',
+                            data: globalTrends.slice(0, 14).map(item => item.global_new_cases).reverse(),
+                            borderColor: 'rgb(54, 162, 235)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        },
+                        {
+                            label: 'New Deaths',
+                            data: globalTrends.slice(0, 14).map(item => item.global_new_deaths).reverse(),
+                            borderColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        },
+                        {
+                            label: '7-Day Avg (Cases)',
+                            data: globalTrends.slice(0, 14).map(item => item.cases_7d_avg).reverse(),
+                            borderColor: 'rgb(75, 192, 192)',
+                            borderDash: [5, 5],
+                            fill: false
+                        }
+                    ]
+                };
+                
+                const globalChart = new Chart(
+                    document.getElementById('globalTrendsChart'),
+                    {
+                        type: 'line',
+                        data: globalChartData,
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Count'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Date'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+                
+                // Create country comparison chart
+                const countryNames = countryAnalysis.map(item => item.country_name);
+                const countryCases = countryAnalysis.map(item => item.total_cases);
+                
+                const countryChart = new Chart(
+                    document.getElementById('countryComparisonChart'),
+                    {
+                        type: 'bar',
+                        data: {
+                            labels: countryNames,
+                            datasets: [
+                                {
+                                    label: 'Total Cases',
+                                    data: countryCases,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                    borderColor: 'rgb(54, 162, 235)',
+                                    borderWidth: 1
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            indexAxis: 'y',
+                            scales: {
+                                x: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Total Cases'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+                
+                // Create country fatality rate chart
+                const countryFatalityRates = countryAnalysis.map(item => item.case_fatality_rate);
+                
+                const fatalityChart = new Chart(
+                    document.getElementById('countryFatalityChart'),
+                    {
+                        type: 'bar',
+                        data: {
+                            labels: countryNames,
+                            datasets: [
+                                {
+                                    label: 'Case Fatality Rate (%)',
+                                    data: countryFatalityRates,
+                                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    borderWidth: 1
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Case Fatality Rate (%)'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+                
+                // Create daily stats chart
+                const dailyDates = dailyStats.map(item => item.date);
+                const dailyNewCases = dailyStats.map(item => item.total_new_cases);
+                const dailyNewDeaths = dailyStats.map(item => item.total_new_deaths);
+                
+                const dailyChart = new Chart(
+                    document.getElementById('dailyStatsChart'),
+                    {
+                        type: 'line',
+                        data: {
+                            labels: dailyDates,
+                            datasets: [
+                                {
+                                    label: 'New Cases',
+                                    data: dailyNewCases,
+                                    borderColor: 'rgb(54, 162, 235)',
+                                    backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                                    fill: true,
+                                    tension: 0.4
+                                },
+                                {
+                                    label: 'New Deaths',
+                                    data: dailyNewDeaths,
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                                    fill: true,
+                                    tension: 0.4
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Count'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Date'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.body.innerHTML = `
+                    <div style="padding: 20px; color: red;">
+                        <h1>Error Loading Data</h1>
+                        <p>Make sure you have run the local test script to generate the mock data files.</p>
+                        <p>Error details: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Load data when the page is loaded
+        window.addEventListener('load', loadData);
+    </script>
+</body>
+</html> 

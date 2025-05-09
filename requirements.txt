@@ -1,0 +1,8 @@
+google-cloud-bigquery==3.11.4
+google-cloud-functions==1.13.1
+pandas==2.1.1
+numpy==1.24.3
+pyyaml==6.0.1
+python-dotenv==1.0.0
+google-auth==2.23.3
+google-api-python-client==2.108.0 

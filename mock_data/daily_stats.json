@@ -1,0 +1,226 @@
+[
+  {
+    "date": "2025-05-09",
+    "countries_with_cases": 200,
+    "total_new_cases": 500000,
+    "total_new_deaths": 10000,
+    "total_new_recovered": 400000,
+    "total_cases": 100000000,
+    "total_deaths": 2000000,
+    "total_recovered": 90000000,
+    "global_new_cases_per_100k": 6.5,
+    "global_new_deaths_per_100k": 0.13,
+    "global_case_fatality_rate": 2.0,
+    "global_recovery_rate": 80.0,
+    "top_10_countries": [
+      {
+        "country_name": "United States",
+        "new_confirmed": 100000,
+        "new_deceased": 2000,
+        "new_recovered": 80000,
+        "new_cases_per_100k": 30.0,
+        "new_deaths_per_100k": 0.6
+      },
+      {
+        "country_name": "India",
+        "new_confirmed": 90000,
+        "new_deceased": 1800,
+        "new_recovered": 72000,
+        "new_cases_per_100k": 27.0,
+        "new_deaths_per_100k": 0.54
+      }
+    ]
+  },
+  {
+    "date": "2025-05-08",
+    "countries_with_cases": 200,
+    "total_new_cases": 480000,
+    "total_new_deaths": 9600,
+    "total_new_recovered": 384000,
+    "total_cases": 100500000,
+    "total_deaths": 2010000,
+    "total_recovered": 90400000,
+    "global_new_cases_per_100k": 6.3,
+    "global_new_deaths_per_100k": 0.125,
+    "global_case_fatality_rate": 2.0,
+    "global_recovery_rate": 80.0,
+    "top_10_countries": [
+      {
+        "country_name": "United States",
+        "new_confirmed": 95000,
+        "new_deceased": 1900,
+        "new_recovered": 76000,
+        "new_cases_per_100k": 28.5,
+        "new_deaths_per_100k": 0.57
+      },
+      {
+        "country_name": "India",
+        "new_confirmed": 85500,
+        "new_deceased": 1710,
+        "new_recovered": 68400,
+        "new_cases_per_100k": 25.65,
+        "new_deaths_per_100k": 0.513
+      }
+    ]
+  },
+  {
+    "date": "2025-05-07",
+    "countries_with_cases": 200,
+    "total_new_cases": 460000,
+    "total_new_deaths": 9200,
+    "total_new_recovered": 368000,
+    "total_cases": 101000000,
+    "total_deaths": 2020000,
+    "total_recovered": 90800000,
+    "global_new_cases_per_100k": 6.1,
+    "global_new_deaths_per_100k": 0.12000000000000001,
+    "global_case_fatality_rate": 2.0,
+    "global_recovery_rate": 80.0,
+    "top_10_countries": [
+      {
+        "country_name": "United States",
+        "new_confirmed": 90000,
+        "new_deceased": 1800,
+        "new_recovered": 72000,
+        "new_cases_per_100k": 27.0,
+        "new_deaths_per_100k": 0.54
+      },
+      {
+        "country_name": "India",
+        "new_confirmed": 81000,
+        "new_deceased": 1620,
+        "new_recovered": 64800,
+        "new_cases_per_100k": 24.3,
+        "new_deaths_per_100k": 0.48600000000000004
+      }
+    ]
+  },
+  {
+    "date": "2025-05-06",
+    "countries_with_cases": 200,
+    "total_new_cases": 440000,
+    "total_new_deaths": 8800,
+    "total_new_recovered": 352000,
+    "total_cases": 101500000,
+    "total_deaths": 2030000,
+    "total_recovered": 91200000,
+    "global_new_cases_per_100k": 5.9,
+    "global_new_deaths_per_100k": 0.115,
+    "global_case_fatality_rate": 2.0,
+    "global_recovery_rate": 80.0,
+    "top_10_countries": [
+      {
+        "country_name": "United States",
+        "new_confirmed": 85000,
+        "new_deceased": 1700,
+        "new_recovered": 68000,
+        "new_cases_per_100k": 25.5,
+        "new_deaths_per_100k": 0.51
+      },
+      {
+        "country_name": "India",
+        "new_confirmed": 76500,
+        "new_deceased": 1530,
+        "new_recovered": 61200,
+        "new_cases_per_100k": 22.95,
+        "new_deaths_per_100k": 0.459
+      }
+    ]
+  },
+  {
+    "date": "2025-05-05",
+    "countries_with_cases": 200,
+    "total_new_cases": 420000,
+    "total_new_deaths": 8400,
+    "total_new_recovered": 336000,
+    "total_cases": 102000000,
+    "total_deaths": 2040000,
+    "total_recovered": 91600000,
+    "global_new_cases_per_100k": 5.7,
+    "global_new_deaths_per_100k": 0.11,
+    "global_case_fatality_rate": 2.0,
+    "global_recovery_rate": 80.0,
+    "top_10_countries": [
+      {
+        "country_name": "United States",
+        "new_confirmed": 80000,
+        "new_deceased": 1600,
+        "new_recovered": 64000,
+        "new_cases_per_100k": 24.0,
+        "new_deaths_per_100k": 0.48
+      },
+      {
+        "country_name": "India",
+        "new_confirmed": 72000,
+        "new_deceased": 1440,
+        "new_recovered": 57600,
+        "new_cases_per_100k": 21.6,
+        "new_deaths_per_100k": 0.43200000000000005
+      }
+    ]
+  },
+  {
+    "date": "2025-05-04",
+    "countries_with_cases": 200,
+    "total_new_cases": 400000,
+    "total_new_deaths": 8000,
+    "total_new_recovered": 320000,
+    "total_cases": 102500000,
+    "total_deaths": 2050000,
+    "total_recovered": 92000000,
+    "global_new_cases_per_100k": 5.5,
+    "global_new_deaths_per_100k": 0.10500000000000001,
+    "global_case_fatality_rate": 2.0,
+    "global_recovery_rate": 80.0,
+    "top_10_countries": [
+      {
+        "country_name": "United States",
+        "new_confirmed": 75000,
+        "new_deceased": 1500,
+        "new_recovered": 60000,
+        "new_cases_per_100k": 22.5,
+        "new_deaths_per_100k": 0.44999999999999996
+      },
+      {
+        "country_name": "India",
+        "new_confirmed": 67500,
+        "new_deceased": 1350,
+        "new_recovered": 54000,
+        "new_cases_per_100k": 20.25,
+        "new_deaths_per_100k": 0.405
+      }
+    ]
+  },
+  {
+    "date": "2025-05-03",
+    "countries_with_cases": 200,
+    "total_new_cases": 380000,
+    "total_new_deaths": 7600,
+    "total_new_recovered": 304000,
+    "total_cases": 103000000,
+    "total_deaths": 2060000,
+    "total_recovered": 92400000,
+    "global_new_cases_per_100k": 5.3,
+    "global_new_deaths_per_100k": 0.1,
+    "global_case_fatality_rate": 2.0,
+    "global_recovery_rate": 80.0,
+    "top_10_countries": [
+      {
+        "country_name": "United States",
+        "new_confirmed": 70000,
+        "new_deceased": 1400,
+        "new_recovered": 56000,
+        "new_cases_per_100k": 21.0,
+        "new_deaths_per_100k": 0.42
+      },
+      {
+        "country_name": "India",
+        "new_confirmed": 63000,
+        "new_deceased": 1260,
+        "new_recovered": 50400,
+        "new_cases_per_100k": 18.9,
+        "new_deaths_per_100k": 0.378
+      }
+    ]
+  }
+]

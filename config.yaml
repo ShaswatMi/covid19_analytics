@@ -1,0 +1,43 @@
+# Google Cloud Configuration
+gcp:
+  project_id: "covid-19-analytics-455507"
+  credentials_file: "service-account.json"  # Updated path
+  region: "us-central1"
+  dataset_id: "covid19_data"
+
+# BigQuery Configuration
+bigquery:
+  dataset: "bigquery-public-data.covid19_open_data.covid19_open_data"
+  table: "covid19_open_data"
+
+# Cloud Functions Configuration
+functions:
+  data_processor:
+    name: "covid19-data-processor"
+    memory: "256MB"
+    timeout: "540s"
+  dashboard_updater:
+    name: "covid19-dashboard-updater"
+    memory: "256MB"
+    timeout: "540s"
+
+# Data Studio Configuration
+datastudio:
+  dashboard_id: ""  # To be filled after dashboard creation
+  refresh_interval: "3600"  # in seconds
+
+# Analysis Configuration
+analysis:
+  countries_of_interest:
+    - "United States"
+    - "India"
+    - "Brazil"
+    - "United Kingdom"
+    - "Germany"
+  metrics:
+    - "new_confirmed"
+    - "cumulative_confirmed"
+    - "new_deceased"
+    - "cumulative_deceased"
+    - "new_recovered"
+    - "cumulative_recovered" 

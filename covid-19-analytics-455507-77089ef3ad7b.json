@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "covid-19-analytics-455507",
+  "private_key_id": "77089ef3ad7b3a0a04b0b69b70e00522bf009834",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8E3l8jcPOU9ZH\nbTA6i2IQuub8JcQQZOyDD07TIkwH/cTSDXqdfDCzz/LRxte7sPNXUgk2Z29rFfaQ\n9OrFEArovqOE44vapetBriEoMQCEiR6yw9WuRtIYzCqoZVU859UC1wxex1qhNCgl\nNJRej03Vf7sXz5oQ/+xyGLX+m42p4KszDaq8SdEWkv81J0ipra1vyB1+5ak65ReX\nn5ZD6Mf3YHkJxjSVAugCyWbUaPrgPJuJ5GFcHtQLsrFZTxSFcZvRzHsOSZfvxCOL\nJd2ivI3f7RcLn/ky2N/IRr/ZOUDt7nGf+BkJ7RW+YaVxUNNERF6GGW90NwzhIwWE\n0dGktdozAgMBAAECggEAEXlZuznMrHnbmc1KQtY6aUWEOn8jxUYrN04Py8wO9lsc\nk0uPTdyBBePXMqhf2N9q7H0BwB1CG9fxjaxDt8VyzgcQWENv9gOeZP7Rs9NBsg6v\nXHqXeta3pHgrqnOnxL3ha58hVhj9kaav6C0Hb/WujJyOfHrcXKH6jOtA1YQMWHEP\nh7+S1Le5hUSd1hZEFvHR8oeuDFtr092tihTRAZa0BwFi0t32EHgIp2vPW8wkIg48\nG+ODsUqnhJXP1YVJS70PQocuusjv00vfjLRPqDjFDVjQSNbYC4Skya3l4GQtSGAA\nkw5izy6DbeehG4I3cZhH+lezdqzv5ogg7f2DpBasoQKBgQDkwzSIdz2MMqs3qxXf\nvQ/HqZjRa4F+QB0Br0ToLf8GuNaLMIutxHrw3BIq907rJ1rhZCEZUN9zS8ZMNuKk\nY9gJy1toFvkFTFVYjv3VgevaG3w+lbBsskSyTjbVtDn/rfDEbu46t82UJGGrl6Xo\n0DkoRCbKTJoqFDmzBTGVTqvkwwKBgQDSeCBUlT4fQxXFJ8RhLfSYRi3tb3IeUAYK\nOtPi6qm9TfOBnoDo10D92+bV98cykU3FU2U07CnGnCGFEryJpnuixo9KzPMLH7mC\nhUO5EJxY3YvPhSZguGIMq28ToPrP4PYx6z+wbZBIMfulILTskDlkpZpyb10KV9zG\nJ2am+VId0QKBgA9wWTBIk9/NX57PLhe+g70e5hBkKAYkP5Doikb9K7QBb4FPUm30\nz7NHtvYtYKcgLdL+VfmGar42Q/jKz3r2vhLTJaUdv8qqvyvN4rWxIgDDUBxNL+32\nDgrWmn7LvgpSa+hl8DAITZiM6AaTon/W5bSg/Nk0WEc0vDwnwpPoDlPPAoGAMWOV\nGqQm/skMS8aoM7HICw+06VnUqr5WnIHvhPlSOaUYNluOnpUcoDXBNoa9jOVCHcMT\nJdcheoTa7NJXwel6a9kyePgdNIgOTU2edcgrGENs8papSdsazyRPnYiSMsP0ogQ1\nXt5nFDn+dmJ1cmnpve+Kjb4KVEoH+cv3L8mj9nECgYEAofdmpq+PbrRfyf1MABmJ\na7SlUqeu/IRGG3IhHAJYUpLcMYrRJ+m9HwpzA5BxMEUVGUN0V65y1C9JDlBQGYoR\n12vBcAlDUZJH1QU1r28gdQHKrIISxN0JQKLquof8FBZhQ0wYavDhk1O7lFfKGCgA\ntRhbBYXGgLeKKKZPMuywwJc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "data-analytics-service-767@covid-19-analytics-455507.iam.gserviceaccount.com",
+  "client_id": "103426370339054505319",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/data-analytics-service-767%40covid-19-analytics-455507.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

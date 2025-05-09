@@ -1,0 +1,87 @@
+{
+  "name": "COVID-19 Analytics Dashboard",
+  "type": "DASHBOARD",
+  "dashboardType": "EXPLORATION",
+  "dateRangeSelection": {
+    "includeToday": true,
+    "relativePresets": [
+      "LAST_30_DAYS",
+      "LAST_90_DAYS",
+      "LAST_YEAR"
+    ]
+  },
+  "refreshSchedule": {
+    "refreshInterval": 3600
+  },
+  "sections": [
+    {
+      "name": "Global Trends",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "width": 12,
+        "height": 6
+      },
+      "components": [
+        {
+          "name": "Global Cases and Deaths",
+          "type": "LINE_CHART",
+          "dimensions": [
+            "date"
+          ],
+          "metrics": [
+            "global_new_cases",
+            "global_new_deaths",
+            "cases_7d_avg",
+            "deaths_7d_avg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Country Analysis",
+      "position": {
+        "x": 0,
+        "y": 6,
+        "width": 12,
+        "height": 6
+      },
+      "components": [
+        {
+          "name": "Top Countries",
+          "type": "BAR_CHART",
+          "dimensions": [
+            "country_name"
+          ],
+          "metrics": [
+            "total_cases",
+            "total_deaths",
+            "cases_per_100k"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Daily Statistics",
+      "position": {
+        "x": 0,
+        "y": 12,
+        "width": 12,
+        "height": 6
+      },
+      "components": [
+        {
+          "name": "Daily New Cases",
+          "type": "LINE_CHART",
+          "dimensions": [
+            "date"
+          ],
+          "metrics": [
+            "total_new_cases",
+            "total_new_deaths"
+          ]
+        }
+      ]
+    }
+  ]
+}
