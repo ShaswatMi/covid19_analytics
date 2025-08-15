@@ -76,7 +76,3 @@ The dashboard is hosted on Google Data Studio and can be accessed at: [Dashboard
 ## Contributing
 
 Feel free to submit issues and enhancement requests.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
